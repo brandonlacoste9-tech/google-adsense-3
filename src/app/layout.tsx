@@ -36,9 +36,8 @@ export default function RootLayout({
       </head>
       <body>
         <MarketTicker />
-        <div className="pt-6"> {/* Spacing for the fixed ticker */}
-
-        <nav className="border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
+        <div className="flex flex-col pt-[28px]">
+          <nav className="border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-[28px] z-50">
           <div className="container py-6 flex justify-between items-center">
             <Link href="/" className="flex items-center gap-2 group">
               <div className="w-8 h-8 bg-gold rounded-sm rotate-45 flex items-center justify-center transition-transform group-hover:rotate-90">
