@@ -167,7 +167,7 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {intelligenceBriefs.map((brief, i) => (
-              <div key={i} className="finance-card group cursor-pointer p-6 flex flex-col h-full">
+              <Link key={i} href="/briefing" className="finance-card group cursor-pointer p-6 flex flex-col h-full">
                 <div className="h-48 bg-slate-900 mb-6 relative overflow-hidden rounded-sm">
                   <div className="absolute inset-0 bg-gold/5 group-hover:bg-gold/10 transition-colors" />
                   <div className="w-full h-full flex items-center justify-center text-gold/20 text-4xl font-black italic uppercase">
@@ -185,8 +185,30 @@ export default function Home() {
                   <span>{brief.time}</span>
                   <span className="text-white group-hover:text-gold transition-colors">Read Briefing →</span>
                 </div>
-              </div>
+              </Link>
             ))}
+          </div>
+          <div className="mt-24 bg-white/5 border border-white/10 p-12">
+            <h3 className="text-xs font-black uppercase tracking-[0.3em] text-gold mb-10 text-center">Economic Calendar // May 11 - 15</h3>
+            <div className="space-y-6 max-w-4xl mx-auto">
+              {[
+                { date: "May 11", event: "US CPI Inflation Data (April)", impact: "HIGH", forecast: "3.2%" },
+                { date: "May 12", event: "UK Unemployment Rate", impact: "MED", forecast: "4.2%" },
+                { date: "May 14", event: "US PPI Data", impact: "HIGH", forecast: "0.3% MoM" },
+                { date: "May 15", event: "G7 Finance Ministers Meeting", impact: "HIGH", forecast: "N/A" }
+              ].map((ev, i) => (
+                <div key={i} className="flex justify-between items-center py-4 border-b border-white/5 last:border-0">
+                  <div className="flex gap-8 items-center">
+                    <span className="text-[10px] font-black text-slate-600 w-16">{ev.date}</span>
+                    <span className="text-sm font-bold text-white">{ev.event}</span>
+                  </div>
+                  <div className="flex gap-12 items-center text-[10px] font-black uppercase tracking-widest">
+                    <span className={ev.impact === 'HIGH' ? 'text-red-500' : 'text-gold'}>{ev.impact} IMPACT</span>
+                    <span className="text-slate-400 w-20 text-right">{ev.forecast}</span>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
