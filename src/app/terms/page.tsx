@@ -1,24 +1,26 @@
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
+import MarketTicker from "@/components/MarketTicker";
+
 export default function TermsPage() {
   return (
-    <div className="container py-24">
-      <article className="max-w-3xl mx-auto prose prose-invert prose-slate">
-        <h1 className="text-4xl font-black mb-8 uppercase tracking-tighter text-white">Terms of Use</h1>
-        <p className="text-gold font-bold italic mb-8 uppercase tracking-widest text-xs">Revised: May 2026</p>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-white">1. Service Agreement</h2>
-          <p className="text-slate-400">
-            By accessing Capital Pulse, you acknowledge that you have read, understood, and agreed to be bound by these terms, which constitute a legally binding agreement between you and Capital Pulse Media Group.
-          </p>
-        </section>
-
-        <section className="mb-12">
-          <h2 className="text-2xl font-bold mb-4 text-white">2. Proprietary Research</h2>
-          <p className="text-slate-400">
-            All research, analysis, and data visualizations on this platform are the property of Capital Pulse and are protected by international copyright laws.
-          </p>
-        </section>
-      </article>
-    </div>
+    <main className="min-h-screen bg-black">
+      <MarketTicker />
+      <div className="container py-24 px-6 max-w-4xl mx-auto">
+        <Link href="/" className="text-gold flex items-center gap-2 mb-16 font-black uppercase text-[10px] tracking-widest">
+          <ArrowLeft size={16} /> Terminal
+        </Link>
+        <h1 className="text-5xl font-black text-white uppercase tracking-tighter mb-12">Institutional <span className="text-gold">Mandate</span> (Terms)</h1>
+        <div className="prose prose-invert prose-slate max-w-none prose-p:text-slate-400 prose-headings:text-white prose-headings:uppercase prose-headings:font-black">
+          <p>By accessing the Capital Pulse Terminal, you agree to the following institutional mandates.</p>
+          <h3>1. Non-Reliance</h3>
+          <p>The content provided on this platform is for institutional intelligence purposes only and does not constitute financial, investment, or legal advice.</p>
+          <h3>2. Intellectual Property</h3>
+          <p>All research briefings, market tickers, and proprietary analysis are the property of Capital Pulse Media Group.</p>
+          <h3>3. Acceptable Use</h3>
+          <p>Users are prohibited from using automated bots to scrape institutional intelligence from this terminal without explicit written consent.</p>
+        </div>
+      </div>
+    </main>
   );
 }
