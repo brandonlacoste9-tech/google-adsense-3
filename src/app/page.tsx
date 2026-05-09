@@ -211,20 +211,20 @@ export default function Home() {
       </section>
 
       {/* Institutional Newsletter */}
-      <section className="py-32 bg-gold relative overflow-hidden">
+      <section className="py-32 bg-[#D4AF37] relative overflow-hidden">
         <div className="container text-center relative z-10">
           <h2 className="text-5xl font-black text-black mb-6 tracking-tighter">Subscribe to the Pulse.</h2>
-          <p className="text-black/70 text-lg mb-12 max-w-2xl mx-auto font-bold uppercase tracking-widest text-xs">
+          <p className="text-black/80 text-lg mb-12 max-w-2xl mx-auto font-bold uppercase tracking-widest text-xs">
             Institutional Market Alpha. Delivered Daily. Directly to Your Inbox.
           </p>
           <div className="flex flex-col md:flex-row gap-4 max-w-lg mx-auto">
             <input 
               type="email" 
               placeholder="INSTITUTIONAL EMAIL ADDRESS" 
-              className="flex-1 bg-black/5 border-2 border-black/10 px-6 py-4 outline-none font-bold text-black placeholder:text-black/40 focus:border-black transition-all"
+              className="flex-1 bg-white/20 border-2 border-black/10 px-6 py-4 outline-none font-bold text-black placeholder:text-black/60 focus:border-black transition-all"
             />
-            <button className="bg-black text-gold px-10 py-4 font-black uppercase tracking-widest hover:scale-105 transition-transform">
-              Join
+            <button className="bg-black text-[#D4AF37] px-10 py-4 font-black uppercase tracking-widest hover:scale-105 transition-transform shadow-xl">
+              Join Terminal
             </button>
           </div>
         </div>
