@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { TrendingUp, Clock, ArrowUpRight, BarChart2, ShieldCheck, Zap } from "lucide-react";
+import MarketTicker from "@/components/MarketTicker";
 
 export default function Home() {
   const jsonLd = {
@@ -32,11 +33,36 @@ export default function Home() {
       desc: "Legal frameworks and offshore structures to protect your generational wealth.",
       time: "15 min read",
       author: "Michael Sterling"
+    },
+    {
+      category: "Energy",
+      title: "Nuclear Renaissance: The Investment Case for Uranium in 2026",
+      desc: "Why clean energy mandates are driving a massive supply-demand gap in nuclear fuels.",
+      time: "12 min read",
+      author: "Robert Pike"
+    },
+    {
+      category: "Tech",
+      title: "Quantum Computing: The Imminent Threat to Global Encryption",
+      desc: "Financial institutions must transition to post-quantum standards before the 'Q-Day' threshold.",
+      time: "18 min read",
+      author: "Elena Vance"
     }
   ];
 
+  const intelligenceBriefs = [
+    { category: "Macro", title: "The Sovereign Debt Reset: Navigating the Liquidity Crisis", desc: "Detailed analysis of central bank balance sheets and the transition to a new monetary regime.", time: "20 min read" },
+    { category: "Markets", title: "Automated Alpha: How LLMs are Redefining Algorithmic Trading", desc: "The shift from statistical arbitrage to semantic-driven market execution.", time: "15 min read" },
+    { category: "Policy", title: "Carbon Credits 2.0: The Tokenization of Environmental Assets", desc: "How blockchain is bringing transparency to the voluntary carbon market.", time: "12 min read" },
+    { category: "Banking", title: "The Death of the Traditional Branch: Neo-Banks Reach 60% Market Share", desc: "Evaluating the structural decline of retail banking legacy systems.", time: "10 min read" },
+    { category: "VC", title: "Defense Tech: The New Frontier for Institutional Capital", desc: "Why Silicon Valley is pivoting towards national security and dual-use technologies.", time: "14 min read" },
+    { category: "Real Estate", title: "Tokenized Property: Liquidity comes to the World's Largest Asset Class", desc: "Analyzing the fractional ownership revolution in commercial real estate.", time: "16 min read" }
+  ];
+
   return (
-    <div className="pt-8">
+    <div>
+      <MarketTicker />
+      <div className="pt-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -140,21 +166,24 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[1, 2, 3, 4, 5, 6].map((n) => (
-              <div key={n} className="finance-card group cursor-pointer p-6">
+            {intelligenceBriefs.map((brief, i) => (
+              <div key={i} className="finance-card group cursor-pointer p-6 flex flex-col h-full">
                 <div className="h-48 bg-slate-900 mb-6 relative overflow-hidden rounded-sm">
                   <div className="absolute inset-0 bg-gold/5 group-hover:bg-gold/10 transition-colors" />
+                  <div className="w-full h-full flex items-center justify-center text-gold/20 text-4xl font-black italic uppercase">
+                    {brief.category}
+                  </div>
                 </div>
-                <span className="text-[9px] font-black text-gold uppercase tracking-widest mb-2 block">Economic Outlook</span>
-                <h4 className="text-xl font-bold text-white mb-4 leading-tight group-hover:underline">
-                  The Decentralized Finance Revolution: Banking the Unbanked or Systemic Risk?
+                <span className="text-[9px] font-black text-gold uppercase tracking-widest mb-2 block">{brief.category}</span>
+                <h4 className="text-xl font-bold text-white mb-4 leading-tight group-hover:underline flex-grow">
+                  {brief.title}
                 </h4>
                 <p className="text-slate-500 text-xs leading-relaxed mb-6">
-                  Exploring the architectural foundations of DeFi and its potential to disrupt the legacy financial system.
+                  {brief.desc}
                 </p>
-                <div className="flex justify-between items-center text-[10px] font-black uppercase text-slate-600">
-                  <span>5 Min Read</span>
-                  <span className="text-white">Read Article →</span>
+                <div className="flex justify-between items-center text-[10px] font-black uppercase text-slate-600 border-t border-white/5 pt-6">
+                  <span>{brief.time}</span>
+                  <span className="text-white group-hover:text-gold transition-colors">Read Briefing →</span>
                 </div>
               </div>
             ))}
