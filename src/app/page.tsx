@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { TrendingUp, Clock, ArrowUpRight, BarChart2, ShieldCheck, Zap } from "lucide-react";
-import MarketTicker from "@/components/MarketTicker";
 
 export default function Home() {
   const jsonLd = {
@@ -60,9 +59,7 @@ export default function Home() {
   ];
 
   return (
-    <div>
-      <MarketTicker />
-      <div className="pt-8">
+    <div className="pt-8">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

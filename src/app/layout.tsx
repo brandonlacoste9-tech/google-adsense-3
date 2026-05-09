@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Link from "next/link";
+import MarketTicker from "@/components/MarketTicker";
 
 export const metadata: Metadata = {
   title: "Capital Pulse | Premier Financial Intelligence & Market News",
@@ -34,26 +35,8 @@ export default function RootLayout({
         ></script>
       </head>
       <body>
-        {/* Market Ticker */}
-        <div className="ticker-wrap py-2">
-          <div className="ticker-move flex gap-12 text-xs font-bold">
-            {stocks.map((s, i) => (
-              <span key={i} className="flex gap-2">
-                <span className="text-slate-400">{s.symbol}</span>
-                <span className="text-white">{s.price}</span>
-                <span className={s.change.startsWith('+') ? 'text-emerald-400' : 'text-rose-500'}>{s.change}</span>
-              </span>
-            ))}
-            {/* Duplicate for seamless loop */}
-            {stocks.map((s, i) => (
-              <span key={i + 10} className="flex gap-2">
-                <span className="text-slate-400">{s.symbol}</span>
-                <span className="text-white">{s.price}</span>
-                <span className={s.change.startsWith('+') ? 'text-emerald-400' : 'text-rose-500'}>{s.change}</span>
-              </span>
-            ))}
-          </div>
-        </div>
+        <MarketTicker />
+        <div className="pt-6"> {/* Spacing for the fixed ticker */}
 
         <nav className="border-b border-white/5 bg-black/50 backdrop-blur-xl sticky top-0 z-50">
           <div className="container py-6 flex justify-between items-center">
@@ -115,6 +98,7 @@ export default function RootLayout({
             </div>
           </div>
         </footer>
+      </div>
       </body>
     </html>
   );
